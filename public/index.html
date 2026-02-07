@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scrooge - Food Budget</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <img src="scrooge.webp" alt="Scrooge McDuck" class="scrooge-img">
+      <h1>Scrooge's Food Vault</h1>
+      <p class="tagline">"Work smarter, not harder!"</p>
+    </header>
+    
+    <main>
+      <section class="hero">
+        <p class="label">Ye can spend today:</p>
+        <p class="amount" id="perTrip">--</p>
+        <div class="coins"></div>
+      </section>
+      
+      <section class="stats">
+        <div class="stat">
+          <span class="stat-label">Money in the vault</span>
+          <span class="stat-value" id="remainingBudget">--</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Trips to market</span>
+          <span class="stat-value" id="remainingTrips">--</span>
+        </div>
+      </section>
+      
+      <section class="controls">
+        <div class="input-group">
+          <label for="newBudget">Update yer treasure</label>
+          <div class="input-row">
+            <span class="currency">EUR</span>
+            <input type="number" id="newBudget" placeholder="Enter amount" step="0.01" min="0">
+            <button id="updateBtn" class="btn btn-primary">Save</button>
+          </div>
+        </div>
+        
+        <button id="resetBtn" class="btn btn-reset">Refill vault to 600 EUR</button>
+      </section>
+      
+      <footer>
+        <p class="last-updated">Last counted: <span id="lastUpdated">--</span></p>
+      </footer>
+    </main>
+  </div>
+  
+  <script src="app.js"></script>
+</body>
+</html>
