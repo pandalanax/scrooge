@@ -68,16 +68,24 @@ app.use(express.static('public'));
 
 // Helper: Calculate remaining shopping trips (Wednesdays and Saturdays)
 function calculateRemainingTrips() {
-  const today = new Date();
-  const year = today.getFullYear();
-  const month = today.getMonth();
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = now.getMonth();
+  const hour = now.getHours();
+  const todayDayOfWeek = now.getDay();
   
   // Get last day of current month
   const lastDay = new Date(year, month + 1, 0);
   
   let trips = 0;
-  const current = new Date(today);
+  const current = new Date(now);
   current.setHours(0, 0, 0, 0);
+  
+  // If it's after 17:00 on a shopping day, skip today (already shopped)
+  const isShoppingDay = (todayDayOfWeek === 3 || todayDayOfWeek === 6);
+  if (isShoppingDay && hour >= 17) {
+    current.setDate(current.getDate() + 1);
+  }
   
   while (current <= lastDay) {
     const dayOfWeek = current.getDay();
