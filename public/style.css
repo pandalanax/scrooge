@@ -303,6 +303,25 @@ footer {
   .stats {
     flex-direction: column;
   }
+  
+  .input-row {
+    flex-wrap: wrap;
+  }
+  
+  .input-row input {
+    flex: 1 1 100%;
+    order: 1;
+  }
+  
+  .input-row .currency {
+    order: 0;
+  }
+  
+  .input-row .btn {
+    flex: 1 1 100%;
+    order: 2;
+    margin-top: 8px;
+  }
 }
 
 /* Loading state */
